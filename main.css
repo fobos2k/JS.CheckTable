@@ -1,0 +1,21 @@
+#mainTable {
+    table-layout    : fixed;
+    border-collapse : collapse;
+}
+
+.rowHeader {
+    transform     : rotate(270deg);
+    text-align    : center;
+    word-wrap     : break-word;
+    font-weight   : bold;
+}
+
+.colHeader {
+    text-align    : center;
+    word-wrap     : break-word;
+    font-weight   : bold;    
+}
+
+.cellCheck {
+    text-align    : center;
+}
