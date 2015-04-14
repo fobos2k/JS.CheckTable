@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+  <name>Кроссчекер</name>
+  <version>1.0</version>
+    <author name="Boris Frenkel">
+    <info url="mailto:fobos2k@gmail.com" />
+  </author>
+  <copyright>© RailSoft, 2015</copyright>
+  <description>Кроссчекер - гаджет для выставления отметок по двум признакам.</description>
+  <icons>
+    <!-- Иконка гаджета -->
+    <icon width="64" height="64" src="img/icon.png" />
+  </icons>
+  <hosts>
+    <host name="sidebar">
+      <!-- имя и тип стартового файла гаджета -->
+      <base type="HTML" apiVersion="1.0.0" src="main.html" />
+      <permissions>full</permissions>
+      <platform minPlatformVersion="1.0" />
+      <!-- Изображение видимое при перетаскивании гаджета на сайдбар -->
+      <defaultImage src="img/icon.png" />
+    </host>
+  </hosts>
+
+
+  
+  
+</gadget>
