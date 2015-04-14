@@ -4,8 +4,8 @@
 }
 
 .rowHeader {
-    transform     : rotate(270deg);
-    text-align    : center;
+    /* transform     : rotate(270deg); */
+    text-align    : right;
     word-wrap     : break-word;
     font-weight   : bold;
 }

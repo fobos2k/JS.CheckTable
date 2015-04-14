@@ -21,7 +21,10 @@ function CheckTable()
 	var newHeaderCell = document.createElement('th');
 	newHeaderCell.id = 'header_' + i;
 	newHeaderCell.className = 'colHeader';
-	if ( i > 0) newHeaderCell.innerHTML = 'Конфигурация';
+	if ( i > 0) {
+	    newHeaderCell.innerHTML = 'Конфигурация';
+	    newHeaderCell.addEventListener("click", TextChange);
+	}
 	newHeaderRow.appendChild(newHeaderCell);
     }
     mainTable.appendChild(newHeaderRow);
@@ -35,6 +38,7 @@ function CheckTable()
 	var newHeaderCell = document.createElement('td');
 	newHeaderCell.className = 'rowHeader';
 	newHeaderCell.innerHTML = 'Вып.';
+	newHeaderCell.addEventListener("click", TextChange);
 	newRow.appendChild(newHeaderCell);
 	for ( var j = 0; j < iColsNum; j++ ) { // Колонки
 	    var newCell = document.createElement('td');
@@ -46,19 +50,40 @@ function CheckTable()
 	    var imgCheck = document.createElement('img');
 	    imgCheck.src = 'img/no_check.png';
 	    imgCheck.id  = 'image_' + i + j;
-	    imgCheck.onClick = 'CheckChange(event)';
+	    imgCheck.setAttribute('checkState', "false");
+	    imgCheck.addEventListener("click", CheckChange);
 	    newCell.appendChild(imgCheck);
 	}
     }
 }
 
+// Изменение содержимого ячейки с отметкой
 function CheckChange (event)
 {
   // получить объект событие.
   // вместо event лучше писать window.event
-  event = event || window.event
+  event = event || window.event;
 
-  // кросс-браузерно получить target
-  var t = event.target || event.srcElement
-  alert(t.className)
+  if ( this.getAttribute('checkState') == "true" ) {
+      this.src = 'img/no_check.png';
+      this.setAttribute('checkState', "false");
+  }
+  else {
+      this.src = 'img/check.png';
+      this.setAttribute('checkState', "true");
+  }  
 }
+
+// Изменение содержимого ячейки с заголовком
+function TextChange (event)
+{
+    event = event || window.event;
+
+    // Запрос нового текста
+    var oldText = this.innerHTML;
+    var newText = prompt("Введите новый заголовок", oldText);
+    
+    if ( newText != null )
+	this.innerHTML = newText;
+}
+
