@@ -1,18 +1,32 @@
-document.onreadystatechange = function()
-{
-    if ( document.readyState == "complete" ) {
-	checkTable = new CheckTable();
-    }
+var maxTableRows    = 4;
+var maxTableColumns = 4;
+
+document.onreadystatechange = function() {
+  if (document.readyState == "complete") {
+    checkTable = new CheckTable();
+    
+    var imageTest = document.getElementById("image_00");
+    if ( imageTest == null )
+	debugger;
+
+    //System.Gadget.settingsUI = 'settings.html';
+    //System.Gadget.onSettingsClosed = SettingsClosed;
+    // System.Gadget.unDock = ResizeGadget;
+    // System.Gadget.onDock = ResizeGadget;
+  }
 }
 
 // Конструктор объекта CheckTable
 function CheckTable()
 {
-    // DEBUG!!!
-    var iColsNum = 3;
-    var iRowsNum = 4;
+    // Чтение сохранённых настроек
+    LoadSettings();
+    var iRowsNum = maxTableRows;
+    var iColsNum = maxTableColumns;
 
     var mainTable = document.getElementById('mainTable');
+
+    // debugger;
     
     // Шапка таблицы
     var newHeaderRow = document.createElement('tr');
@@ -23,7 +37,8 @@ function CheckTable()
 	newHeaderCell.className = 'colHeader';
 	if ( i > 0) {
 	    newHeaderCell.innerHTML = 'Конфигурация';
-	    newHeaderCell.addEventListener("click", TextChange);
+	    // newHeaderCell.addEventListener("click", TextChange);
+	    newHeaderCell.onclick = TextChange;
 	}
 	newHeaderRow.appendChild(newHeaderCell);
     }
@@ -38,7 +53,8 @@ function CheckTable()
 	var newHeaderCell = document.createElement('td');
 	newHeaderCell.className = 'rowHeader';
 	newHeaderCell.innerHTML = 'Вып.';
-	newHeaderCell.addEventListener("click", TextChange);
+	// newHeaderCell.addEventListener("click", TextChange);
+	newHeaderCell.onclick = TextChange;
 	newRow.appendChild(newHeaderCell);
 	for ( var j = 0; j < iColsNum; j++ ) { // Колонки
 	    var newCell = document.createElement('td');
@@ -49,9 +65,13 @@ function CheckTable()
 	    // Рисунок
 	    var imgCheck = document.createElement('img');
 	    imgCheck.src = 'img/no_check.png';
+	    imgCheck.alt = '-';
+	    imgCheck.width = 32;
+	    imgCheck.height = 32;
 	    imgCheck.id  = 'image_' + i + j;
 	    imgCheck.setAttribute('checkState', "false");
-	    imgCheck.addEventListener("click", CheckChange);
+	    //imgCheck.addEventListener("click", CheckChange);
+	    imgCheck.onclick = CheckChange;
 	    newCell.appendChild(imgCheck);
 	}
     }
@@ -66,10 +86,12 @@ function CheckChange (event)
 
   if ( this.getAttribute('checkState') == "true" ) {
       this.src = 'img/no_check.png';
+      this.alt = '-';
       this.setAttribute('checkState', "false");
   }
   else {
       this.src = 'img/check.png';
+      this.alt = '+';
       this.setAttribute('checkState', "true");
   }  
 }
@@ -87,3 +109,31 @@ function TextChange (event)
 	this.innerHTML = newText;
 }
 
+// Чтение сохранённых настроек
+function LoadSettings ()
+{
+    maxTableRows    = 4;
+    maxTableColumns = 4;
+}
+
+// Изменение размеров
+function ResizeGadget ()
+{
+    bd = 1;
+}
+
+// Закрытие окна с настройками
+function SettingsClosed ()
+{
+    
+}
+
+
+// DEBUG!!!
+function TestClick()
+{
+    if (this.innerHTML == "Test" )
+	this.innerHTML = "No test...";
+    else
+	this.innerHTML = "Test";
+}

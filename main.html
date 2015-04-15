@@ -7,9 +7,12 @@
     <script type="text/javascript" src="main.js"></script>
   </head>
 
-  <body id="main">
-    <g:background id="background" style="position:absolute;z-index:-1;top:0;left:0;"></g:background>
-    <div id="gadgetContent"></div>
-    <table border=1 id="mainTable"></table>
+  <body id="mainBody">
+    <g:background id="background" style="position:absolute;z-index:-1;top:0;left:0;" opacity="100">
+      <div id="gadgetContent">
+      <div id="test" onclick="TestClick">Test</div>
+      <table border=1 id="mainTable"></table>
+      </div>
+    </g:background>
   </body>
 </html>
