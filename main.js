@@ -4,11 +4,13 @@ var maxTableColumns = 4;
 document.onreadystatechange = function() {
   if (document.readyState == "complete") {
     checkTable = new CheckTable();
-    
-    var imageTest = document.getElementById("image_00");
-    if ( imageTest == null )
-	debugger;
-
+    /*
+    for ( var i = 0; i < maxTableRows; i++ ) {
+	var oldText = document.getElementById("test").innerHTML;
+	var newText = oldText + "<br> Test_" + i;
+	document.getElementById("test").innerHTML = newText;
+    }
+    */
     //System.Gadget.settingsUI = 'settings.html';
     //System.Gadget.onSettingsClosed = SettingsClosed;
     // System.Gadget.unDock = ResizeGadget;
@@ -26,8 +28,6 @@ function CheckTable()
 
     var mainTable = document.getElementById('mainTable');
 
-    // debugger;
-    
     // Шапка таблицы
     var newHeaderRow = document.createElement('tr');
     newHeaderRow.id = 'headerRow';
@@ -83,7 +83,7 @@ function CheckChange (event)
   // получить объект событие.
   // вместо event лучше писать window.event
   event = event || window.event;
-
+  
   if ( this.getAttribute('checkState') == "true" ) {
       this.src = 'img/no_check.png';
       this.alt = '-';
@@ -126,14 +126,4 @@ function ResizeGadget ()
 function SettingsClosed ()
 {
     
-}
-
-
-// DEBUG!!!
-function TestClick()
-{
-    if (this.innerHTML == "Test" )
-	this.innerHTML = "No test...";
-    else
-	this.innerHTML = "Test";
 }

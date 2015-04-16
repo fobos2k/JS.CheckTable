@@ -1,13 +1,14 @@
 #mainBody {
-    width   : 200px;
-    height  : 200px;
+    width   : 500px;
+    height  : 500px;
     padding : 0px 0px 0px 0px;
     margin  :  0px 0px 0px 0px;
 }
 
 #mainTable {
-    table-layout    : fixed;
+/*    table-layout    : fixed;
     border-collapse : collapse;
+*/
 }
 
 .rowHeader {
@@ -15,17 +16,21 @@
     text-align    : right;
     word-wrap     : break-word;
     font-weight   : bold;
-    width         : 50px;
+    width         : 150px;
 }
 
 .colHeader {
     text-align    : center;
     word-wrap     : break-word;
     font-weight   : bold;
-    width         : 50px;    
+    width         : 150px;    
 }
 
 .cellCheck {
     text-align    : center;
-    width         : 50px;
+    width         : 150px;
+}
+
+#test {
+    width : 200px;
 }

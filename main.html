@@ -4,14 +4,22 @@
     <title>CheckTable</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/jscript" language="javascript">
+      function init()
+      {
+        System.Gadget.background = "img/whitepx.jpg";
+      }
+    </script>
+
+    <script type="text/javascript" language="javascript" src="main.js"></script>
   </head>
 
   <body id="mainBody">
-    <g:background id="background" style="position:absolute;z-index:-1;top:0;left:0;" opacity="100">
+    <!-- <g:background id="background" style="position:absolute;z-index:-1;top:0;left:0;" opacity="0"> -->
+      <g:background id="background" opacity="100">
       <div id="gadgetContent">
-      <div id="test" onclick="TestClick">Test</div>
-      <table border=1 id="mainTable"></table>
+      <div id="test">Test</div>
+      <table border="1" id="mainTable"></table>
       </div>
     </g:background>
   </body>
