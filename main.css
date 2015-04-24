@@ -1,31 +1,34 @@
-#mainBody {
-    width   : 200px;
-    height  : 200px;
-    padding : 0px 0px 0px 0px;
-    margin  :  0px 0px 0px 0px;
+body {
+    margin      : 0;
+    width       : 500px;
+    height      : 500px;
+    font-family : verdana;
+}
+
+#gadgetContent {
 }
 
 #mainTable {
-    table-layout    : fixed;
-    border-collapse : collapse;
+    border          : 2px solid red;
+    table-layout    : auto;
+    width           : 100%;
 }
 
-.rowHeader {
-    /* transform     : rotate(270deg); */
+td.rowHeader {
     text-align    : right;
     word-wrap     : break-word;
     font-weight   : bold;
     width         : 50px;
 }
 
-.colHeader {
+td.colHeader {
     text-align    : center;
     word-wrap     : break-word;
     font-weight   : bold;
     width         : 50px;    
 }
 
-.cellCheck {
+td.cellCheck {
     text-align    : center;
     width         : 50px;
 }

@@ -9,8 +9,8 @@ document.onreadystatechange = function() {
     if ( imageTest == null )
 	debugger;
 
-    //System.Gadget.settingsUI = 'settings.html';
-    //System.Gadget.onSettingsClosed = SettingsClosed;
+    // System.Gadget.settingsUI = 'settings.html';
+    // System.Gadget.onSettingsClosed = SettingsClosed;
     // System.Gadget.unDock = ResizeGadget;
     // System.Gadget.onDock = ResizeGadget;
   }
@@ -24,9 +24,12 @@ function CheckTable()
     var iRowsNum = maxTableRows;
     var iColsNum = maxTableColumns;
 
-    var mainTable = document.getElementById('mainTable');
+    var mainTablePlace = document.getElementById('mainTable');
+    var mainTable = document.createElement('table');
+    mainTable.border = 1;
 
-    // debugger;
+    // DEBUG!
+    var textTest = document.getElementById('Test');
     
     // Шапка таблицы
     var newHeaderRow = document.createElement('tr');
@@ -36,8 +39,7 @@ function CheckTable()
 	newHeaderCell.id = 'header_' + i;
 	newHeaderCell.className = 'colHeader';
 	if ( i > 0) {
-	    newHeaderCell.innerHTML = 'Конфигурация';
-	    // newHeaderCell.addEventListener("click", TextChange);
+	    newHeaderCell.innerHTML = 'Конф.';
 	    newHeaderCell.onclick = TextChange;
 	}
 	newHeaderRow.appendChild(newHeaderCell);
@@ -53,7 +55,6 @@ function CheckTable()
 	var newHeaderCell = document.createElement('td');
 	newHeaderCell.className = 'rowHeader';
 	newHeaderCell.innerHTML = 'Вып.';
-	// newHeaderCell.addEventListener("click", TextChange);
 	newHeaderCell.onclick = TextChange;
 	newRow.appendChild(newHeaderCell);
 	for ( var j = 0; j < iColsNum; j++ ) { // Колонки
@@ -69,12 +70,20 @@ function CheckTable()
 	    imgCheck.width = 32;
 	    imgCheck.height = 32;
 	    imgCheck.id  = 'image_' + i + j;
+	    
+	    // DEBUG!
+	    if ( textTest != null )
+   		textTest.innerHTML = textTest.innerHTML + "<br/>" + imgCheck.id;
+
 	    imgCheck.setAttribute('checkState', "false");
 	    //imgCheck.addEventListener("click", CheckChange);
 	    imgCheck.onclick = CheckChange;
 	    newCell.appendChild(imgCheck);
 	}
     }
+
+    mainTablePlace.appendChild(mainTable);
+    mainTablePlace.width = "500";
 }
 
 // Изменение содержимого ячейки с отметкой
@@ -127,7 +136,6 @@ function SettingsClosed ()
 {
     
 }
-
 
 // DEBUG!!!
 function TestClick()
