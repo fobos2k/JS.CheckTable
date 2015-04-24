@@ -13,6 +13,8 @@
   </icons>
   <hosts>
     <host name="sidebar">
+      <autoscaleDPI>true</autoscaleDPI>
+
       <!-- имя и тип стартового файла гаджета -->
       <base type="HTML" apiVersion="1.0.0" src="main.html" />
       <permissions>full</permissions>
@@ -21,8 +23,4 @@
       <defaultImage src="img/icon.png" />
     </host>
   </hosts>
-
-
-  
-  
 </gadget>
